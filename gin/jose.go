@@ -114,6 +114,17 @@ func TokenSignatureValidator(hf ginkrakend.HandlerFactory, logger logging.Logger
 				return
 			}
 
+			//如果有设置 append_headers {"token 键":"header 名称"}
+			if len(scfg.AppendHeaders) > 0 {
+				//循环 map,
+				for origin, header := range scfg.AppendHeaders {
+					if value, ok := claims[origin]; ok {
+						//header = 头名称
+						//value.(string) = 头部值
+						c.Header(header, value.(string))
+					}
+				}
+			}
 			handler(c)
 		}
 	}
