@@ -9,12 +9,12 @@ import (
 	"net/http/httptest"
 	"time"
 
+	krakendjose "github.com/devopsfaith/krakend-jose"
 	"github.com/devopsfaith/krakend/config"
 	"github.com/devopsfaith/krakend/logging"
 	"github.com/devopsfaith/krakend/proxy"
 	ginkrakend "github.com/devopsfaith/krakend/router/gin"
 	"github.com/gin-gonic/gin"
-	krakendjose "github.com/kirinse/krakend-jose"
 )
 
 func Example_RS256() {
